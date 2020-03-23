@@ -4,12 +4,39 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 def natural(num)
     sum = []
-    (0...1000).each do |el|
+    (0...num).each do |el|
         sum << el if el % 3 == 0 || el % 5 == 0
     end
-    sum = sum.sum
+    sum.sum
 end
 
 p natural(1000)
 
-answer: 233168
+
+--------------------------
+3 Liner Updated Solution.
+--------------------------
+
+
+def natural(num)
+    sum = []
+    (0...num).each { |el| sum << el if el % 3 == 0 || el % 5 == 0 }
+    sum.sum
+end
+
+p natural(1000)
+
+--------------------------
+1 Liner Updated Solution.
+--------------------------
+
+
+def natural(num)
+    (0...num).select { |i| i % 3 == 0 || i % 5 == 0 }
+end
+
+p natural(1000).reduce(:+)
+
+
+
+
