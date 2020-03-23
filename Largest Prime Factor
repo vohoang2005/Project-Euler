@@ -1,0 +1,41 @@
+The prime factors of 13195 are 5, 7, 13, 29
+What is the largest prime factor of the number 600851475143 ?
+
+Solution #1. 
+-------------------------------------------
+def prime_factor(num)
+    prime_facts = []
+    (1...num).each do |i|
+        if num % i == 0 && prime?(i)
+            prime_facts << i
+        end
+    end
+    return prime_facts
+end
+
+def prime?(n)
+    if n < 2
+        return false
+    end
+
+    (2...n).each do |i|
+        if n % i == 0
+            return false
+        end
+    end
+    return true
+end
+
+p prime_factor(600851475143)
+
+Solution Number 2 with Built in Prime Division.
+---------------------------------------------
+require 'prime'
+
+def factor_prime(num)
+    last_prime = num.prime_division.last
+    last_prime[0]
+end
+
+p factor_prime(600851475143)
+  
