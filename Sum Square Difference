@@ -1,0 +1,42 @@
+The sum of the squares of the first ten natural numbers is,
+
+12+22+...+102=385
+The square of the sum of the first ten natural numbers is,
+
+(1+2+...+10)2=552=3025
+Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025−385=2640.
+
+Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+First Solution.
+def sum_of_square(n)
+    return n if n == 1
+
+    (n * n) + (sum_of_square(n-1))
+end
+
+def square_of_sum(num)
+    return num if num == 1
+    num = (1..num)
+
+    num.sum ** 2
+    
+end
+
+def total(number)
+    square_of_sum(number) - sum_of_square(number)
+end
+
+p total(100)
+
+-------------------------------------------------
+Better Solution.
+
+def sum_square_difference(n)
+    numbers = (1..n)
+    square_of_sum = numbers.sum ** 2
+    sum_of_square = numbers.map { |n| n ** 2 }.sum
+    square_of_sum - sum_of_square
+end
+
+puts sum_square_difference(100)
