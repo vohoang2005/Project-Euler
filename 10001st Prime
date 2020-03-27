@@ -1,0 +1,28 @@
+By listing the first six prime numbers: 2,3,5,7,11, and 13, we can see that the 6th prime is 13.
+What is the 10 001st prime number?
+
+Solution # 1: Using the Prime Method.
+-------------------------------------
+require 'Prime'
+puts Prime.instance.first(10001).last
+
+Solution # 2: 
+-------------------------------------
+def prime?(x)
+    a = Math.sqrt(x)
+    (2..a).each { |y| return false if x % y == 0 }
+    true
+end
+
+x = 10001
+n = 3
+counter = 1
+
+while true
+    counter += 1 if prime?(n)
+    break if counter == x
+    n += 2
+
+end
+
+puts "The answer is #{n}."
